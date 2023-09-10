@@ -64,7 +64,7 @@ const Register = () => {
                 id="checkbox"
                 required
               />
-              <label htmlFor="password">
+              <label htmlFor="checkbox">
                 I agree to privacy policy & terms
               </label>
             </div>
