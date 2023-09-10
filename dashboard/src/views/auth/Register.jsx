@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineGooglePlus,AiOutlineGithub } from "react-icons/ai";
 import { FiFacebook } from "react-icons/fi";
 import { CiTwitter } from "react-icons/ci";
 
 const Register = () => {
+
+  const [state,setState]=useState({
+    name:"",
+    email:"",
+    password:""
+  });
+
+  const inputHandle=(e)=>{
+    setState({
+      ...state,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  const submit=(e)=>{
+    e.preventDefault();
+    console.log(state)
+  }
   return (
     <div className="min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center">
       <div className="w-[350px] text-[#d0d2d6] p-2 ">
@@ -13,10 +31,10 @@ const Register = () => {
           <p className="text-sm mb-3">
             Please register to your account and start your business
           </p>
-          <form>
+          <form onSubmit={submit}>
             <div className="flex flex-col w-full gap-1 mb-3">
               <label htmlFor="name">Name</label>
-              <input
+              <input onChange={inputHandle} value={state.name}
                 className="py-2 px-3 text-[#d0d2d6] outline-none border
                       border-slate-700 bg-transparent rounded-md focus:border-indigo-500
                        overflow-hidden"
@@ -30,7 +48,7 @@ const Register = () => {
 
             <div className="flex flex-col w-full gap-1 mb-3">
               <label htmlFor="email">Email</label>
-              <input
+              <input onChange={inputHandle} value={state.email}
                 className="py-2 px-3 text-[#d0d2d6] outline-none border
                       border-slate-700 bg-transparent rounded-md focus:border-indigo-500
                        overflow-hidden"
@@ -44,7 +62,7 @@ const Register = () => {
 
             <div className="flex flex-col w-full gap-1 mb-3">
               <label htmlFor="password">Password</label>
-              <input
+              <input onChange={inputHandle} value={state.password}
                 className="py-2 px-3 text-[#d0d2d6] outline-none border
                       border-slate-700 bg-transparent rounded-md focus:border-indigo-500
                        overflow-hidden"
@@ -56,7 +74,7 @@ const Register = () => {
               />
             </div>
 
-            <div className="flex items-center gap-3 w-full gap-1 mb-3">
+            <div className="flex items-center gap-3 w-full mb-3">
               <input
                 className="w-4 h-4 overflow-hidden text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
                 type="checkbox"
