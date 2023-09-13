@@ -1,10 +1,10 @@
 const express = require("express");
+const {dbConnect}= require("./utiles/db")
 const app = express();
 const cors=require("cors")
 const bodyParser=require("body-parser");
 const cookieParser=require("cookie-parser")
 require('dotenv').config();
-const port =process.env.PORT;
 
 app.use(cookieParser())
 app.use(bodyParser.json())
@@ -14,4 +14,7 @@ app.use(cors({
 }))
 app.use('/api', require("./routes/authRoutes"))
 app.get('/', (req,res)=> res.send("Hello World"));
+
+const port =process.env.PORT;
+dbConnect()
 app.listen(port, ()=> console.log(`App listening on port ${port}!`));
