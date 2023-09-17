@@ -6,49 +6,67 @@ import {AiOutlineShoppingCart} from 'react-icons/ai'
 import Chart from 'react-apexcharts'
 
 const AdminDashboard = () => {
-  const state ={
-    series:[
-      {
-        name: "Orders",
-        data: [12, 45, 98, 90, 56, 78, 24, 90, 98, 65, 99, 100],
-      },
-      {
-        name: "Revenue",
-        data: [12, 45, 98, 97, 56, 7, 24, 90, 98, 6, 99, 19],
-      },
-      {
-        name: "Sellers",
-        data: [12, 40, 98, 0, 56, 72, 24, 9, 98, 6, 99, 100],
-      },
+  const state = {
+    series: [
+        {
+            name: "Orders",
+            data: [34, 65, 34, 65, 34, 34, 34, 56, 23, 67, 23, 45]
+        },
+        {
+            name: "Revenue",
+            data: [34, 32, 45, 32, 34, 34, 43, 56, 65, 67, 45, 78]
+        },
+        {
+            name: "Sellers",
+            data: [78, 32, 34, 54, 65, 34, 54, 21, 54, 43, 45, 43]
+        }
     ],
-    options:{
-      color: ["#181ee8","#181ee8"],
-      plotOptions:{
-        radius:30
-      },
-      chart:{
-        background: 'transparent',
-        foreColor: '#d0d2d6'
-      },
-      dataLables: {
-        enabled:false
-      },
-      stroke:{
-        show:true,
-        curve: ['smooth','straight','stepline'],
-        lineCap: 'butt',
-        colors: '#f0f0f0',
-        width: .5,
-        dashArray: 0
-      },
-      xaxis:{
-        categories:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-      },
-      legend:{
-        position: 'top'
-      }
+    options: {
+        color: ['#181ee8', '#181ee8'],
+        plotOptions: {
+            radius: 30
+        },
+        chart: {
+            background: 'transparent',
+            foreColor: '#d0d2d6'
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            show: true,
+            curve: ['smooth', 'straight', 'stepline'],
+            lineCap: 'butt',
+            colors: '#f0f0f0',
+            width: .5,
+            dashArray: 0
+        },
+        xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apl', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        legend: {
+            position: 'top'
+        },
+        responsive: [
+            {
+                breakpoint: 565,
+                yaxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apl', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                options: {
+                    plotOptions: {
+                        bar: {
+                            horizontal: true
+                        }
+                    },
+                    chart: {
+                        height: '550px'
+                    }
+                }
+            }
+        ]
     }
-  }
+}
   return (
     <div className='px-2 md:px-7 py-5'>
       <div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-7'>
